@@ -16,8 +16,8 @@ class Menu extends Phaser.Scene {
      let menuConfig = {
         fontFamily: 'Courier',
         fontSize: '28px',
-        backgroundColor: '#F3B141',
-        color: '#843605',
+        backgroundColor: '#00FF00',
+        color: '#000',
         align: 'right',
         padding: {
            top: 5,
@@ -25,12 +25,38 @@ class Menu extends Phaser.Scene {
         },
         fixedWidth: 0
      }
+
+     let menuConfig1 = {
+      fontFamily: 'Courier',
+      fontSize: '28px',
+      backgroundColor: '#e80404',
+      color: '#bcbcbc',
+      align: 'right',
+      padding: {
+         top: 5,
+         bottom: 5,
+      },
+      fixedWidth: 0
+   }
+
+   let menuConfig2 = {
+    fontFamily: 'Courier',
+    fontSize: '28px',
+    backgroundColor: '#1104e8',
+    color: '#bcbcbc',
+    align: 'right',
+    padding: {
+       top: 5,
+       bottom: 5,
+    },
+    fixedWidth: 0
+ }
      
      // show menu text
      this.add.text(game.config.width/2, game.config.height/2 - borderUISize * 2 - borderPadding * 2, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
      this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'Highscore: ' + highscore, menuConfig).setOrigin(0.5);
-     this.add.text(game.config.width/2, game.config.height/2, '1: Use ←→ arrows to move & ↑ to fire', menuConfig).setOrigin(0.5);
-     this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, '2: Use (a) & (d) to move & (w) to fire', menuConfig).setOrigin(0.5);
+     this.add.text(game.config.width/2, game.config.height/2, '1: Use ←→ arrows to move & ↑ to fire', menuConfig1).setOrigin(0.5);
+     this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, '2: Use (a) & (d) to move & (w) to fire', menuConfig2).setOrigin(0.5);
      menuConfig.backgroundColor = '#00FF00';
      menuConfig.color = '#000';
      this.add.text(game.config.width/2, game.config.height/2 + borderUISize * 2 + borderPadding * 2, 'Press ← for Easy or → for Hard', menuConfig).setOrigin(0.5);

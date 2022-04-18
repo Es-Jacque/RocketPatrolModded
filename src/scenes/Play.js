@@ -36,14 +36,14 @@ class Play extends Phaser.Scene {
        // green UI background
        this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0x00FF00).setOrigin(0, 0);
        // white borders
-       this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
-       this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
-       this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
-       this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
+       this.add.rectangle(0, 0, game.config.width, borderUISize, 0xbcbcbc).setOrigin(0, 0);
+       this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xbcbcbc).setOrigin(0, 0);
+       this.add.rectangle(0, 0, borderUISize, game.config.height, 0xbcbcbc).setOrigin(0, 0);
+       this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xbcbcbc).setOrigin(0, 0);
  
        // add rocket (p1)
-       this.p1Rocket = new Rocket(this, game.config.width / 2, game.config.height - borderUISize - borderPadding, 'rocket1', 0, keyLEFT, keyRIGHT, keyUP).setOrigin(0.5,0);
-       this.p2Rocket = new Rocket(this, game.config.width / 2, borderUISize + borderPadding, 'rocket2', 0, keyA, keyD, keyW).setOrigin(0.5,0);
+       this.p1Rocket = new Rocket(this, game.config.width / 2, game.config.height - borderUISize - borderPadding, 'rocket1', 0, keyLEFT, keyRIGHT, keyUP).setOrigin(1,0);
+       this.p2Rocket = new Rocket(this, game.config.width / 2, borderUISize + borderPadding, 'rocket2', 0, keyA, keyD, keyW).setOrigin(-1,0);
  
  
        // add spaceships (x3)
@@ -66,8 +66,8 @@ class Play extends Phaser.Scene {
        let scoreConfig = {
           fontFamily: 'Courier',
           fontSize: '28px',
-          backgroundColor: '#F3B141',
-          color: '#843605',
+          backgroundColor: '#00FF00',
+          color: '#000',
           align: 'right',
           padding: {
              top: 5,
@@ -75,8 +75,34 @@ class Play extends Phaser.Scene {
           },
           fixedWidth: 100
        }
-       this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding * 2, this.p1Score, scoreConfig);
-       this.scoreRight = this.add.text(game.config.width - borderUISize - borderPadding - scoreConfig.fixedWidth, borderUISize + borderPadding * 2, this.p2Score, scoreConfig);
+
+       let scoreConfig1 = {
+        fontFamily: 'Courier',
+        fontSize: '28px',
+        backgroundColor: '#e80404',
+        color: '#bcbcbc',
+        align: 'right',
+        padding: {
+           top: 5,
+           bottom: 5,
+        },
+        fixedWidth: 100
+     }
+
+     let scoreConfig2 = {
+        fontFamily: 'Courier',
+        fontSize: '28px',
+        backgroundColor: '#1104e8',
+        color: '#bcbcbc',
+        align: 'right',
+        padding: {
+           top: 5,
+           bottom: 5,
+        },
+        fixedWidth: 100
+     }
+       this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding * 2, this.p1Score, scoreConfig1);
+       this.scoreRight = this.add.text(game.config.width - borderUISize - borderPadding - scoreConfig.fixedWidth, borderUISize + borderPadding * 2, this.p2Score, scoreConfig2);
     
        // GAME OVER flag
        this.gameOver = false;
